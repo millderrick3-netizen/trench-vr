@@ -6,7 +6,7 @@ Modern trench warfare VR game for Meta Quest (WebXR, three.js). Hold a muddy fro
 
 ## Play
 1. On your Meta Quest 3/3S, open **Quest Browser**.
-2. Go to **https://officialdrexie-11.github.io/trench-vr/**
+2. Go to **https://millderrick3-netizen.github.io/trench-vr/**
 3. Tap **Enter VR**. (Desktop browsers: click **Play on desktop**.)
 
 ## Quest controls
