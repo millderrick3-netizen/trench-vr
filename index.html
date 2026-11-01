@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TRENCH LINE VR</title>
+<style>
+html,body{margin:0;height:100%;overflow:hidden;background:#20221e;font-family:system-ui,sans-serif;color:#dfe2d2}
+canvas{display:block}
+#overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(#3a3d34,#141511);z-index:10}
+#card{max-width:720px;padding:28px 34px;background:rgba(20,22,18,.85);border:1px solid #4d5242;border-radius:10px}
+h1{margin:0 0 4px;letter-spacing:4px;color:#c9d3a4}
+.sub{color:#9aa08a;margin:0 0 18px}
+button{font-size:18px;padding:12px 22px;margin:6px 10px 6px 0;border-radius:6px;border:1px solid #7d8a5a;background:#3c4630;color:#eef2dc;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+#vrBtn{background:#56682f;font-weight:bold}
+.cols{display:flex;gap:28px;font-size:13px;line-height:1.5;color:#b7bca7;margin-top:14px}
+.cols b{color:#dfe2c5}
+#status{font-size:12px;color:#8f9580;margin-top:10px;white-space:pre-wrap}
+#hud{display:none;position:fixed;left:50%;bottom:18px;transform:translateX(-50%);font:bold 15px monospace;color:#cfe0a4;text-shadow:0 0 4px #000;z-index:5;pointer-events:none}
+#cross{display:none;position:fixed;left:50%;top:50%;width:4px;height:4px;margin:-2px;background:#d8e8b0;border-radius:50%;z-index:5;pointer-events:none}
+</style>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js","three/addons/":"./vendor/addons/"}}</script>
+</head><body>
+<div id="overlay"><div id="card">
+<h1>TRENCH LINE VR</h1>
+<p class="sub">Hold a muddy front-line trench against three waves: dug-in riflemen, a crater-to-crater advance with FPV drones, and an assault down your own trench. Fictional setting.</p>
+<button id="vrBtn" disabled>Checking VR…</button><button id="desktopBtn">Play on desktop</button>
+<div class="cols">
+<div><b>Quest controls</b><br>Right trigger: fire / click menu<br>Left grip near handguard: two-hand grip<br>Right A: drop mag · B: bolt release / semi-auto<br>Left grip at chest pouch: grab mag → push into magwell<br>Left grip on charging handle, pull back: chamber<br>Left grip at left hip: grenade · left trigger: pull pin · release grip: throw<br>Right grip at right hip: rifle ⇄ pistol<br>Left stick: move (click = sprint) · right stick: turn<br>X: light/laser · Y: menu · right stick click: LPVO zoom<br>Grip a crate: resupply</div>
+<div><b>Desktop</b><br>Click to lock mouse · WASD move · Shift sprint<br>LMB fire · RMB aim · R reload<br>B bolt release / fire mode · 1/2 rifle/pistol<br>G grenade · F light/laser · V LPVO zoom<br>C crouch · E resupply at crate<br>N rain · M / Esc menu</div>
+</div>
+<div id="status">Loading…</div>
+</div></div>
+<div id="hud"></div><div id="cross"></div>
+<script>
+window.addEventListener('error', e => { const s = document.getElementById('status'); if (s) s.textContent = 'Error: ' + e.message + ' (' + (e.filename||'').split('/').pop() + ':' + e.lineno + ')'; });
+window.addEventListener('unhandledrejection', e => { const s = document.getElementById('status'); if (s) s.textContent = 'Error: ' + (e.reason && e.reason.message || e.reason); });
+</script>
+<script type="module" src="./js/main.js"></script>
+</body></html>
